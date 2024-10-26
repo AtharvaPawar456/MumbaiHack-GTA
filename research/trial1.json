@@ -1,0 +1,51 @@
+dataJson = [
+    {
+        "title": "The First Meeting",
+        "scenStart": "00:11:26",
+        "scenEnd": "00:11:50",
+        "description": "Farhan and Raju meet Rancho for the first time in the hostel, beginning their journey of friendship as they bond over shared experiences."
+    },
+    {
+        "title": "The 'Aal izz well' Mantra",
+        "scenStart": "00:13:15",
+        "scenEnd": "00:13:20",
+        "description": "Rancho’s mantra 'Aal izz well' encourages a positive outlook, symbolizing their support for each other through challenges."
+    },
+    {
+        "title": "The Exam Night Rescue",
+        "scenStart": "00:52:55",
+        "scenEnd": "00:53:02",
+        "description": "Farhan and Raju attempt to steal the exam paper for Raju, showing their willingness to go to extreme lengths for a friend."
+    },
+    {
+        "title": "The 'Missing' Results",
+        "scenStart": "01:17:27",
+        "scenEnd": "01:17:42",
+        "description": "When Rancho’s name is missing from the results, Farhan and Raju’s deep concern underscores their emotional bond with him."
+    },
+    {
+        "title": "The Rooftop Bonding",
+        "scenStart": "01:17:42",
+        "scenEnd": "01:17:54",
+        "description": "The friends share their feelings on the rooftop, experiencing disappointment together, which strengthens their friendship."
+    },
+    {
+        "title": "The 'Stolen' Photo",
+        "scenStart": "01:35:13",
+        "scenEnd": "01:35:28",
+        "description": "Rancho keeps his promise to stay in touch, demonstrating the power of friendship to transcend time and distance."
+    },
+    {
+        "title": "The Journey to Find Rancho",
+        "scenStart": "01:46:44",
+        "scenEnd": "01:46:55",
+        "description": "Their journey to find Rancho reflects their commitment and determination to reconnect with him, showcasing their enduring friendship."
+    },
+    {
+        "title": "The Reunion and Acceptance",
+        "scenStart": "02:32:49",
+        "scenEnd": "02:33:05",
+        "description": "The emotional culmination of their journey, where they reunite with Rancho and acknowledge their growth and changes."
+    }
+]
+

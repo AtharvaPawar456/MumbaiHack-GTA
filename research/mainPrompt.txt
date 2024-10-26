@@ -1,0 +1,512 @@
+
+# Instructions:
+```
+Strictly give responses in json data only and i dont want any other explanation from model
+
+sample json data
+'''
+[    {
+        "title": "titecxd...",
+        "scenStart": "00:11:26,560",
+        "scenEnd": "00:11:50,678",
+    }
+]
+'''
+Strictly flow this above json format
+
+{"userPreference" : ["comedy"]}
+
+## Objective: Create a personalized trailer using emotional scenes that align precisely with the provided SRT subtitle and script file.
+
+Strictly Make Scene Selection Based on Emotion and the 'userPreference' only...
+
+Strictly Extract scenes reflecting the specified emotions and the 'userPreference' from both the SRT subtitle file and the script file.
+Only choose segments where the emotion is consistently conveyed in both the script dialogue and the SRT timing.
+
+## Scene Duration:
+- Strictly each scene : minimum 2 seconds to maximum 5 seconds
+- give only 20 clips
+
+## Accuracy:
+Strictly the theme of the scenes should mainly focus on the "userPreference" part...
+
+## Sequencing:
+Arrange scenes to flow in a manner that builds emotional engagement. 
+Begin with an introductory scene, moving through pivotal emotional beats, and conclude with a climactic or memorable ending.
+
+as the main data that describe the scene is the dialogs, so refer dialogs strictly...
+
+## Final Output:
+Deliver a seamless, impactful trailer with precise cuts that convey a cohesive emotional journey.
+```
+
+# Data: (SRT File)
+```
+00:00:00,000 --> 00:00:21,200 : guys please comment on the quality of this subtitle...
+00:00:51,279 --> 00:00:52,399 : hello
+00:00:52,861 --> 00:00:53,981 : ya
+00:00:57,071 --> 00:00:57,891 : what?
+00:00:57,941 --> 00:01:00,341 : sir kindly switch off your mobile phone
+00:01:00,459 --> 00:01:02,479 : just one sec one sec please!!!
+00:01:11,514 --> 00:01:13,214 : excuse me!
+00:01:32,775 --> 00:01:33,895 : sir please sit down!!!!
+00:01:43,162 --> 00:01:44,682 : captain ther is a medical emergency
+00:01:44,758 --> 00:01:46,758 : a passenger has just fallen down on the aisle
+00:01:47,025 --> 00:01:50,345 : delhi air india 11 returning to medical emergency
+00:01:55,697 --> 00:01:58,517 : sir excuse  me sir excuse me sir
+00:02:09,155 --> 00:02:10,555 : one minute!!!!!!!
+00:02:19,377 --> 00:02:20,797 : im alright now
+00:02:20,879 --> 00:02:22,079 : thank you!
+00:02:22,138 --> 00:02:22,958 : all go now
+00:02:23,039 --> 00:02:24,159 : i'll go now
+00:02:25,080 --> 00:02:26,900 : gentlemen wait!!
+00:02:54,744 --> 00:02:56,164 : get the vehicle
+00:02:56,576 --> 00:02:57,976 : are you Mr.dullon
+00:02:58,020 --> 00:02:58,340 : why?
+00:02:58,415 --> 00:02:59,415 : should i tatoo my name here?
+00:02:59,415 --> 00:03:00,115 : take out the vehicle fast!!
+00:03:00,133 --> 00:03:00,953 : ok sir!! come sir
+00:03:02,526 --> 00:03:03,926 : should go to hotel right sir??
+00:03:04,006 --> 00:03:05,226 : ya ya we'll go hotel
+00:03:05,310 --> 00:03:07,130 : but through vasant vihar.. take me ther
+00:03:08,748 --> 00:03:10,168 : put some load on accelerator kaake!!!!
+00:03:22,390 --> 00:03:23,710 : ya farhan tell me
+00:03:23,804 --> 00:03:26,504 : you come out fast im reachin ur place in 5 min
+00:03:26,527 --> 00:03:27,647 : what happened dude?
+00:03:27,715 --> 00:03:28,735 : chathur had called
+00:03:28,796 --> 00:03:29,596 : remember him?
+00:03:29,708 --> 00:03:31,128 : who "silencer"?
+00:03:31,133 --> 00:03:32,553 : ya ya
+00:03:33,642 --> 00:03:36,142 : he's tellin rancho is comin
+00:03:37,524 --> 00:03:38,844 : what u're sayin?
+00:03:38,907 --> 00:03:43,027 : hanh he's tellin if wanna meet rancho come to campus at 8, on the tank
+00:03:43,687 --> 00:03:44,487 : oh s*****
+00:03:44,487 --> 00:03:46,007 : hey u come out fast
+00:03:46,077 --> 00:03:47,877 : ya ok ok
+00:03:51,928 --> 00:03:54,128 : sruthi i'll be back in sometime
+00:03:54,219 --> 00:03:55,619 : oooo shoes....
+00:03:55,689 --> 00:03:57,709 : hey i got my friend back
+00:03:59,301 --> 00:04:00,421 : what?
+00:04:01,469 --> 00:04:03,269 : hey i'll come back n speak to u!!!
+00:04:03,293 --> 00:04:05,293 : atleast wear pants n go!!!
+00:04:14,044 --> 00:04:15,644 : now can we go to hotel sir?
+00:04:15,733 --> 00:04:19,233 : we'll go to hotel kaake
+00:04:19,352 --> 00:04:20,052 : ok sir!!!
+00:04:20,601 --> 00:04:21,801 : forgot to take socks dude!!
+00:04:21,880 --> 00:04:25,080 : u talkin about socks??? hey look down even pants u forgot!!!
+00:04:25,132 --> 00:04:26,252 : oooooooo
+00:04:37,160 --> 00:04:42,180 : sir now u can go to hotel!!! but only after goin to airport because my sir is comin there take him to hotel!!!!! same sur name "dullon"
+00:04:42,251 --> 00:04:46,751 : im dullon!! where the hell  had u sent taxi?? is it on runway??
+00:05:05,137 --> 00:05:06,537 : oye rancho
+00:05:06,776 --> 00:05:08,876 : hey chathur where is rancho?
+00:05:08,933 --> 00:05:10,053 : rancho
+00:05:11,032 --> 00:05:12,052 : where is rancho?
+00:05:12,375 --> 00:05:13,775 : welcome idiots
+00:05:18,669 --> 00:05:20,489 : wanna drink madiera(RUM)
+00:05:21,268 --> 00:05:24,268 : this is that rum you all used to drink here?
+00:05:25,222 --> 00:05:26,622 : have a drink
+00:05:27,033 --> 00:05:28,053 : hey where is rancho?
+00:05:28,072 --> 00:05:29,472 : i'll tell u
+00:05:29,827 --> 00:05:32,047 : first u watch this
+00:05:33,090 --> 00:05:39,090 : not my wife... llook at the bunglow  behind idiots 3.5 million
+00:05:39,414 --> 00:05:41,234 : swiming pool heated!!!
+00:05:41,270 --> 00:05:44,970 : living room maple wood flooring
+00:05:45,041 --> 00:05:50,161 : my new lamborghini 6496cc sssss very fast
+00:05:50,236 --> 00:05:52,636 : hey why u showin all these to us?
+00:05:52,652 --> 00:05:53,772 : forgot?
+00:05:56,151 --> 00:05:57,851 : what is this?
+00:05:57,855 --> 00:06:00,455 : 5the september..todays date..then wat yaar!!
+00:06:16,682 --> 00:06:20,702 : come bet... after 10 years will come back
+00:06:20,791 --> 00:06:22,891 : over here itself, on this same day
+00:06:22,961 --> 00:06:26,661 : n we'll see who is more successful???
+00:06:26,741 --> 00:06:31,541 : have dareness??.........tell,  will u come??.... will u come?
+00:06:31,546 --> 00:06:34,146 : remember something now???
+00:06:34,167 --> 00:06:37,367 : here only i kept bet with that idiot
+00:06:37,451 --> 00:06:39,271 : i kept my promise
+00:06:39,353 --> 00:06:40,473 : im back he he
+00:06:40,559 --> 00:06:41,679 : stupid
+00:06:41,738 --> 00:06:43,358 : i left my flight n came
+00:06:43,720 --> 00:06:46,320 : he left his pant n came just to meet rancho
+00:06:46,371 --> 00:06:51,271 : from five years we're searchin for him dont know he's dead or alive
+00:06:51,390 --> 00:06:55,690 : he wont come i know he wont come he he eh
+00:06:55,938 --> 00:06:58,738 : what? will u break his teeth or ill only do it.....
+00:06:59,028 --> 00:07:00,948 : idiot..  then why did u call us over here?
+00:07:00,993 --> 00:07:02,393 : to meet rancho
+00:07:02,926 --> 00:07:06,326 : come n see where he stayed back n where i reached!!!
+00:07:06,334 --> 00:07:09,134 : means tat u know where is rancho? aah?
+00:07:09,703 --> 00:07:10,823 : yes
+00:07:11,675 --> 00:07:13,495 : where is rancho?
+00:07:14,413 --> 00:07:16,833 : he is in shimla!!!!
+00:07:21,828 --> 00:07:26,828 : #.....he was like a fleeting wind.....#
+00:07:28,796 --> 00:07:33,996 : #.....like a flutterting kite.....#
+00:07:35,507 --> 00:07:40,907 : #.....where did he go? lets find him.....#
+00:07:55,635 --> 00:08:00,255 : #.....he was like a fleeting wind.....#
+00:08:00,518 --> 00:08:04,538 : #.....like a flutterting kite.....#
+00:08:05,634 --> 00:08:09,754 : #.....where did he go? lets find him.....#
+00:08:11,760 --> 00:08:15,060 : #.....while confined channel guided us.....#
+00:08:15,123 --> 00:08:18,723 : #.....he would define his pathways.....#
+00:08:18,799 --> 00:08:23,299 : #.....and loiter along them merrily.....#
+00:08:25,189 --> 00:08:28,189 : #.....while our future haunted us.....#
+00:08:28,517 --> 00:08:31,317 : #.....he would celebrate the present.....#
+00:08:31,760 --> 00:08:35,760 : #.....and live every moment with reckless freedom .....#
+00:08:38,468 --> 00:08:42,968 : #.....where did he come from? .....#
+00:08:45,015 --> 00:08:49,315 : #....touching our hearts .....#
+00:08:51,513 --> 00:08:56,233 : #.....where did he go? lets find him.....#
+00:09:01,167 --> 00:09:04,687 : #.....he was like a shade in sweltering heat .....#
+00:09:04,722 --> 00:09:07,922 : #.....like village in desert .....#
+00:09:08,118 --> 00:09:12,418 : #.....he was like salve for our distress .....#
+00:09:14,435 --> 00:09:17,435 : #.....while we cowered from challenges .....#
+00:09:18,023 --> 00:09:21,023 : #.....he would dive in seas .....#
+00:09:21,138 --> 00:09:25,638 : #.....and swim against the rip currents .....#
+00:09:27,787 --> 00:09:32,087 : #.....he was a wandering cloud .....#
+00:09:32,201 --> 00:09:36,201 : #.....he was our pal .....#
+00:09:37,132 --> 00:09:40,052 : #.....where did he go? lets find him.....#
+00:09:40,489 --> 00:09:41,609 : rancho!
+00:09:42,116 --> 00:09:44,716 : ranchhodas shamaldas chanchad
+00:09:44,871 --> 00:09:46,871 : how different his name was?
+00:09:46,952 --> 00:09:48,772 : that same different thoughts
+00:09:48,865 --> 00:09:54,885 : since childhood we heard that life is like a race....
+00:09:55,169 --> 00:09:59,169 : damn!!! to take birth... had to race among 300 million sp****s he he eh
+00:10:01,316 --> 00:10:02,436 : 1978
+00:10:02,501 --> 00:10:04,501 : i born at 5.15am
+00:10:05,061 --> 00:10:07,581 : n at 5.16am my dad told
+00:10:08,136 --> 00:10:09,836 : My son will become engineer!!!
+00:10:10,018 --> 00:10:11,818 : farhan qureshi! b.tech engineer
+00:10:12,165 --> 00:10:15,185 : and my fate was sealed!!!
+00:10:15,532 --> 00:10:19,432 : what i wanted to become?? nobody asked me though?
+00:10:39,602 --> 00:10:41,002 : raju rastogi
+00:10:41,911 --> 00:10:43,731 : ranchhoddas chanchad
+00:10:44,260 --> 00:10:46,080 : tell me ur room number!
+00:10:47,736 --> 00:10:48,856 : D26
+00:10:50,771 --> 00:10:51,671 : follow me
+00:10:51,743 --> 00:10:52,543 : im manmohan
+00:10:52,934 --> 00:10:54,054 : M.M
+00:10:54,151 --> 00:10:55,271 : all these enginneers call me milli meter
+00:10:55,776 --> 00:11:00,096 : milk, egg, bread, wash clothes, iron clothes, filling journals, copying assignment
+00:11:00,138 --> 00:11:03,538 : let it be any work tell me!!! fixed rate no bargain!!
+00:11:03,705 --> 00:11:05,725 : one min one min hold this hold.....
+00:11:07,893 --> 00:11:09,213 : this is kilo byte
+00:11:09,299 --> 00:11:11,619 : this is mega byte n this is his mother  giga byte
+00:11:11,625 --> 00:11:14,145 : take their pictures... this family does'nt byte [bite]
+00:11:17,361 --> 00:11:18,761 : [raju praying]
+00:11:20,154 --> 00:11:22,474 : here comes one more big believer!!!
+00:11:26,550 --> 00:11:29,170 : hi farhan qureshi...im raju rastogi
+00:11:32,888 --> 00:11:34,488 : dont worry
+00:11:34,777 --> 00:11:38,977 : after someday u stay here... ur belief in god will vanish eventually
+00:11:39,080 --> 00:11:42,480 : only naked girls poster sticked by your side.. n u'll say
+00:11:42,491 --> 00:11:43,911 : oh god
+00:11:44,182 --> 00:11:45,682 : get me once!!!
+00:11:45,822 --> 00:11:47,922 : hey get out of here!! out out
+00:11:48,090 --> 00:11:49,090 : give 4 rupees
+00:11:49,127 --> 00:11:50,447 : 2 rupees per bag
+00:11:51,630 --> 00:11:53,730 : here 5 rupees... keep change
+00:11:53,867 --> 00:11:55,687 : wow sir u gave me tip
+00:11:56,137 --> 00:11:57,957 : even i'll give u a tip
+00:11:58,256 --> 00:12:02,556 : today night.... wear underwear which doesnt have hole!!!
+00:12:04,119 --> 00:12:05,239 : why?
+00:12:05,955 --> 00:12:07,175 : oh emperor.....
+00:12:07,738 --> 00:12:09,138 : u r great.....
+00:12:09,945 --> 00:12:12,565 : accept our gift
+00:12:12,775 --> 00:12:13,495 : aaahh
+00:12:13,614 --> 00:12:15,434 : this is he-man, he-man take this...
+00:12:16,093 --> 00:12:17,213 : 
+00:12:18,054 --> 00:12:20,154 : ooohhhoo  white white white
+00:12:20,200 --> 00:12:22,020 : we were humiliated,
+00:12:22,490 --> 00:12:24,490 : hands saluting,
+00:12:25,237 --> 00:12:27,257 : heads down like slaves,
+00:12:27,478 --> 00:12:30,498 : when we saw rancho for the first time!
+00:12:48,066 --> 00:12:50,466 : new gift..gift gift gift gift!
+00:12:50,643 --> 00:12:51,763 : namaste sir!!!
+00:12:52,040 --> 00:12:54,140 : remove your pants n get sealed!!!
+00:12:54,238 --> 00:12:54,958 : whats ur name? tell
+00:12:55,048 --> 00:12:56,448 : ranchhodas shamaldas chanchad!!
+00:12:56,520 --> 00:12:57,440 : huuii hhehehhee
+00:12:57,977 --> 00:13:01,477 : listen brothers learn by-heart!!! by final year u'll learn!!! hmmm
+00:13:01,850 --> 00:13:03,950 : remove ur pants.... remove pant
+00:13:04,628 --> 00:13:08,128 : oooh so u wont listen like this hanh?
+00:13:11,839 --> 00:13:13,759 : dont wear wet pant kid?
+00:13:13,809 --> 00:13:15,229 : come remove now!!
+00:13:15,974 --> 00:13:18,374 : aal iz well aal iz well.............[ranchod baba mantra lol]
+00:13:19,069 --> 00:13:20,789 : what is he tellin?
+00:13:20,846 --> 00:13:22,346 : someone make him understand!!!
+00:13:22,388 --> 00:13:25,388 : hey james bond make him understand!! hmm
+00:13:25,703 --> 00:13:28,303 : take off ur pants of they're gonna piss on u
+00:13:28,329 --> 00:13:30,329 : oye english!!! feeling shy to speak in hindi hanh?
+00:13:30,465 --> 00:13:33,965 : sorry sir i was born in uganda, n studied in pondicherry!!
+00:13:34,128 --> 00:13:35,728 : so little slow in hindi!!!
+00:13:35,820 --> 00:13:39,320 : so slowly make him understand!! who is in a hurry here?
+00:13:41,112 --> 00:13:42,432 : worn again hanh?
+00:13:43,414 --> 00:13:50,414 : [in pure hindi!!!!laughing stock] take off ur pants or they gonna piss on u...
+00:13:50,797 --> 00:13:53,597 : he is tellin piss as muthravisarjan???hahahha
+00:13:53,688 --> 00:13:56,708 : ooo here come pandit learning engineering
+00:14:01,944 --> 00:14:03,364 : hey come out you idiot
+00:14:03,756 --> 00:14:05,256 : come out
+00:14:10,480 --> 00:14:16,800 : come out or else ill piss on ur door!!!
+00:14:24,802 --> 00:14:26,202 : ill count 10
+00:14:26,675 --> 00:14:28,495 : if u dont come out
+00:14:29,028 --> 00:14:33,628 : ill piss on ur door for the whole semester
+00:14:36,498 --> 00:14:37,618 : 1
+00:14:40,474 --> 00:14:41,594 : 2
+00:14:47,687 --> 00:14:48,807 : 3
+00:14:58,641 --> 00:14:59,761 : 4
+00:15:03,336 --> 00:15:04,456 : 5
+00:15:11,316 --> 00:15:12,436 : 6
+00:15:18,431 --> 00:15:19,551 : 7
+00:15:25,830 --> 00:15:26,950 : 8
+00:15:31,922 --> 00:15:33,042 : 9
+00:15:42,214 --> 00:15:43,334 : 10
+00:16:27,338 --> 00:16:30,438 : salt water is a great conductor of electricity
+00:16:30,509 --> 00:16:31,929 : 8th standard physics
+00:16:32,183 --> 00:16:33,383 : we all studied it!!
+00:16:33,474 --> 00:16:35,794 : he applied it!!
+00:16:38,875 --> 00:16:43,095 : ICE's director's name was Dr.viru shastrabhuddi
+00:16:43,508 --> 00:16:45,008 : but every one calls him virus
+00:16:45,073 --> 00:16:46,473 : all called him computer virus!!!
+00:16:46,547 --> 00:16:48,967 : oye virus is comin..carryin eggs with him
+00:16:49,279 --> 00:16:52,479 : he has told first years to come down come fast fast
+00:16:52,724 --> 00:16:55,424 : virus was the most competetive man we had  ever seen
+00:16:55,619 --> 00:16:58,119 : if someone overtakes him even one step.........
+00:16:58,139 --> 00:17:00,459 : he could'nt accept it,
+00:17:02,733 --> 00:17:06,233 : to save time he used velcro instead of buttons
+00:17:06,260 --> 00:17:08,280 : and a hook in tie!!
+00:17:10,666 --> 00:17:11,986 : he has trained his mind
+00:17:12,489 --> 00:17:15,289 : that he can write using both his hands at the same time
+00:17:17,271 --> 00:17:23,471 : everday at 2 he used to take a power nap of exactly 7.5 minutes
+00:17:25,942 --> 00:17:33,842 : govind had to do all unproductive works like shaving, cuttin nails in this 7.5 mins
+00:17:50,207 --> 00:17:51,407 : what is this?
+00:17:51,418 --> 00:17:52,518 : sir nest!!
+00:17:52,567 --> 00:17:53,687 : whose??
+00:17:53,711 --> 00:17:55,031 : cuckoo bird's nest
+00:17:57,126 --> 00:17:59,726 : cuckoo bird never builds their nest..
+00:17:59,825 --> 00:18:02,925 : they lay their eggs on other birds nest
+00:18:04,222 --> 00:18:07,842 : and when their babies come to the world, what do they do first?
+00:18:08,283 --> 00:18:14,283 : they kick out other eggs from the nest...
+00:18:16,958 --> 00:18:18,978 : competition over
+00:18:19,789 --> 00:18:22,089 : the life begins with murder
+00:18:22,603 --> 00:18:24,123 : thats nature...
+00:18:24,409 --> 00:18:25,529 : compete
+00:18:25,929 --> 00:18:27,549 : or die!
+00:18:28,521 --> 00:18:31,521 : you all so are like the cuckoo birds
+00:18:34,878 --> 00:18:39,198 : and these are those eggs whom u kicked out and reached ICE
+00:18:39,278 --> 00:18:40,778 : dont forget
+00:18:40,842 --> 00:18:44,262 : because every year, 4 lakh applications comes to ICE
+00:18:44,278 --> 00:18:47,378 : among them only 200 will be selected
+00:18:47,900 --> 00:18:49,020 : you
+00:18:49,111 --> 00:18:50,311 : and these
+00:18:50,318 --> 00:18:51,718 : finished
+00:18:52,267 --> 00:18:53,967 : broken eggs!!
+00:18:55,508 --> 00:18:58,708 : my own son applied for 3 years
+00:19:00,232 --> 00:19:01,432 : rejected
+00:19:01,487 --> 00:19:02,887 : everytime
+00:19:04,399 --> 00:19:06,919 : remember life is a race!!
+00:19:07,350 --> 00:19:10,670 : if u dont run fast someone will beat u n move faster than u...
+00:19:10,746 --> 00:19:13,146 : let me tell u very interesting story
+00:19:14,940 --> 00:19:17,040 : this is an astronauts pen
+00:19:17,124 --> 00:19:19,924 : in space, foundain pen, ball pen cannot be used
+00:19:21,005 --> 00:19:22,925 : so after spending millions of dollars
+00:19:22,966 --> 00:19:25,066 : scientists invented this pen..!!
+00:19:25,463 --> 00:19:29,463 : from this u can write in any angle, any temperature, zero gravity
+00:19:29,824 --> 00:19:33,344 : one day when i was a student the director of our institute called me
+00:19:33,700 --> 00:19:35,800 : he said "viru shastrabhuddi." i said "yes sir"
+00:19:35,813 --> 00:19:37,633 : come here!! i got scared
+00:19:38,763 --> 00:19:40,383 : showed me this pen
+00:19:41,368 --> 00:19:44,168 : he said this is a symbol of excellence
+00:19:44,975 --> 00:19:46,375 : i give it to u
+00:19:47,329 --> 00:19:51,729 : and the day when u get a extraordinary student like u
+00:19:52,350 --> 00:19:54,050 : pass this pen to him
+00:19:54,464 --> 00:19:59,584 : from 32 year viru shastrabhuddi is waiting for the next viru shastrabhuddi
+00:20:02,588 --> 00:20:05,088 : any one here in this batch to honour this pen?
+00:20:07,851 --> 00:20:10,071 : good hands down
+00:20:13,513 --> 00:20:15,613 : should i write in the notice board
+00:20:15,613 --> 00:20:16,713 : i said put down your hands
+00:20:16,874 --> 00:20:18,974 : sir i have a question sir...
+00:20:19,444 --> 00:20:27,064 : sir if in space fountain pen ball pen cannot be used why astronaut didn't  tried pencil in space sir?
+00:20:27,258 --> 00:20:29,658 : could've saved millions of dollars
+00:20:41,580 --> 00:20:43,680 : i will get back to you on this
+00:20:46,937 --> 00:20:48,757 : that fellow in night kicks seniors
+00:20:48,776 --> 00:20:52,176 : and in day irritating director, im telling u if we stay with him...
+00:20:52,187 --> 00:20:54,487 : buddy, u though screwed virus completely
+00:20:54,553 --> 00:20:56,553 : oh emperor, u're great..
+00:20:56,923 --> 00:20:58,743 : accept our gift....
+00:20:58,810 --> 00:21:00,730 : get lost, dont u've school?
+00:21:01,121 --> 00:21:02,721 : who'll pay fees? yout father?
+00:21:02,731 --> 00:21:04,551 : u callin my father?
+00:21:04,598 --> 00:21:05,718 : hey stop stop raju wat u doin?
+00:21:05,859 --> 00:21:07,259 : eh listen!
+00:21:07,338 --> 00:21:09,738 : no fees required for schooling!!! uniform is required, uniform...
+00:21:10,074 --> 00:21:12,974 : whichever school u like go, get the uniform of that school..
+00:21:13,634 --> 00:21:15,454 : go sit in the class.....
+00:21:15,508 --> 00:21:17,408 : who'll come to know when there is a huge population???
+00:21:17,468 --> 00:21:19,088 : if i get caught?
+00:21:19,164 --> 00:21:21,164 : if they catch u, then uniform change, school change!!! ehhe
+00:21:21,197 --> 00:21:23,017 : there was really something special about him,
+00:21:23,114 --> 00:21:26,614 : he always used to challenge everything in the world.. each n every move....
+00:21:26,657 --> 00:21:29,657 : he was the only one free bird in VIRUS's nest...
+00:21:29,695 --> 00:21:33,195 : we all were just robots operated by professors remote control...
+00:21:33,204 --> 00:21:35,304 : but he was the only one..
+00:21:35,386 --> 00:21:37,486 : perhaps not a machine!!!!
+00:21:37,494 --> 00:21:39,314 : what is a machine?
+00:21:43,567 --> 00:21:45,687 : why are you smiling??
+00:21:45,839 --> 00:21:49,559 : um.. actually sir
+00:21:49,623 --> 00:21:52,423 : today im sitting over here,   feeling excited sir!!!
+00:21:52,754 --> 00:21:56,754 : no need to be so overexcited...
+00:21:57,131 --> 00:21:58,251 : um..
+00:21:58,376 --> 00:21:59,496 : sir
+00:21:59,515 --> 00:22:01,715 : machine is anything that reduces human effort sir
+00:22:01,774 --> 00:22:03,874 : will you please elaborate...?
+00:22:06,469 --> 00:22:07,569 : sir um...
+00:22:07,578 --> 00:22:11,778 : all those things which makes the work for humans easier are machines sir
+00:22:12,615 --> 00:22:16,915 : feeling hot!!! pressed button, wind blowing, FAN is a machine sir!!
+00:22:16,959 --> 00:22:20,959 : u can talk to your friend  miles away..TELEPHONE is machine sir!!!
+00:22:21,032 --> 00:22:24,532 : calculate crores in less time... CALCULATOR is a machine sir
+00:22:24,689 --> 00:22:26,789 : sir actually we are dependent in the world for machine sir
+00:22:26,882 --> 00:22:29,982 : from PEN NIB to PANTS ZIB... all machines sir!!
+00:22:30,044 --> 00:22:32,844 : one sec up one sec down, up down up down up
+00:22:34,179 --> 00:22:36,199 : tell me the definition??
+00:22:36,516 --> 00:22:38,616 : sir thats wat im tellin sir..
+00:22:39,347 --> 00:22:41,347 : will you write all these in examz hanh?
+00:22:41,373 --> 00:22:43,873 : "this is machine up down up down up"??
+00:22:43,966 --> 00:22:45,366 : IDIOT!!!
+00:22:45,382 --> 00:22:47,202 : anybody else???
+00:22:48,803 --> 00:22:50,623 : )*&#^*&#*&(%#(*&#
+00:22:51,201 --> 00:22:53,021 : )*&%*&#%&*(#*&%#
+00:22:53,056 --> 00:22:54,176 : $(^($*&%#*&%#
+00:22:55,062 --> 00:22:58,682 : *(&^%%%$^&*&*&^%$%&*
+00:22:59,898 --> 00:23:02,598 : he he eh bla bla bla bla
+00:23:02,747 --> 00:23:05,347 : *(&#*&%(*&#%%#
+00:23:05,410 --> 00:23:07,030 : !!!!!!!!!!!!!!!
+00:23:07,762 --> 00:23:09,462 : wow great !!!! perfect !!
+00:23:09,749 --> 00:23:10,769 : great please sit down!
+00:23:11,231 --> 00:23:13,051 : thank you thank you
+00:23:13,147 --> 00:23:16,447 : but sir even i told the same in simple language.....
+00:23:16,513 --> 00:23:20,013 : if you like simple language..
+00:23:20,058 --> 00:23:22,358 : but sir.. we should understand it atleast
+00:23:22,371 --> 00:23:25,471 : like this way mugging up from book, what the use sir?
+00:23:25,504 --> 00:23:27,524 : oh you know more than books???
+00:23:27,897 --> 00:23:32,097 : books has the same definition...
+00:23:32,107 --> 00:23:33,807 : but sir, ther are other books also
+00:23:33,885 --> 00:23:35,285 : get out!!!
+00:23:35,378 --> 00:23:36,478 : ooh why?
+00:23:36,656 --> 00:23:39,656 : in simple language... please go outside...
+00:23:47,671 --> 00:23:48,791 : IDIOT!
+00:23:50,777 --> 00:23:53,577 : so we were discussing about the machines
+00:23:53,764 --> 00:23:55,784 : hey why you came back?
+00:23:55,927 --> 00:23:57,747 : i forgot somethin sir!!
+00:23:58,622 --> 00:23:59,742 : what?
+00:23:59,809 --> 00:24:03,729 : instrument and record, analyse, summarize, organize,
+00:24:03,735 --> 00:24:07,335 : that are elastative and non-elastative hard bound paper
+00:24:07,343 --> 00:24:10,343 : with forward introduction, table of cotents index that are
+00:24:10,357 --> 00:24:15,077 : enhancement and education human brains of sense in root of vision
+00:24:20,020 --> 00:24:21,840 : what you wish to say??
+00:24:22,062 --> 00:24:23,882 : books sir books!!
+00:24:24,816 --> 00:24:26,916 : i forgot books sir can i take it?
+00:24:26,959 --> 00:24:28,659 : could'nt you say in simple way?
+00:24:28,692 --> 00:24:32,192 : i tried sometime before, but u dint like it in simple way sir....
+00:24:37,052 --> 00:24:40,672 : professors used to keep rancho outside more often than in classroom
+00:24:40,672 --> 00:24:44,172 : if he get kicked from one class, he'll go sit in another classroom
+00:24:44,177 --> 00:24:48,277 : rancho used to say that knowledge is increasing everywhere.......where ever you get... gain it!!!
+00:24:48,371 --> 00:24:50,471 : he was entirely different from all of us
+00:24:50,565 --> 00:24:52,665 : we used to fight for bathroom
+00:24:52,743 --> 00:24:56,243 : but wherever rancho used to get water, he used to have bath there itself!
+00:24:57,637 --> 00:24:59,737 : he was very much attached to machines
+00:24:59,804 --> 00:25:01,904 : used to carry screwdriver in his pocket where ever he goes
+00:25:01,973 --> 00:25:04,973 : he would open any machine that he finds.... some got closed
+00:25:06,085 --> 00:25:08,105 : some did not!!
+00:25:08,145 --> 00:25:10,945 : there was another guy just like him
+00:25:13,687 --> 00:25:15,007 : joy lobo
+00:25:15,313 --> 00:25:17,133 : sir excuse me sir
+00:25:17,956 --> 00:25:19,356 : mr.joy lobo
+00:25:19,654 --> 00:25:22,454 : sir if u mind lettting me know abt the convocations dates...
+00:25:22,459 --> 00:25:23,379 : why?
+00:25:23,437 --> 00:25:25,437 : actually dad wanted to get a reservation
+00:25:25,463 --> 00:25:28,763 : i'm the first engineer in my village sir..
+00:25:28,912 --> 00:25:32,112 : in that case call make a phone call to your dad
+00:25:32,119 --> 00:25:34,539 : son please please  dont waste my time hurry
+00:25:40,086 --> 00:25:41,206 : hello
+00:25:41,216 --> 00:25:44,536 : dad director sir will speak to you
+00:25:44,947 --> 00:25:46,067 : joy
+00:25:46,080 --> 00:25:48,880 : mr.lobo your son wont get graduated this year
+00:25:48,924 --> 00:25:50,044 : what happened sir?
+00:25:50,522 --> 00:25:52,622 : he has violated all the deadlines
+00:25:52,622 --> 00:25:56,642 : with unrealistic mr lobo mr lobo unrealistic project it is i had told already
+00:25:56,653 --> 00:25:58,473 : he making some non-sense helicopter
+00:25:58,549 --> 00:26:03,549 : so i recommend you not to reserve his ticket, im so sorry
+00:26:05,119 --> 00:26:06,439 : sir im just close
+00:26:06,471 --> 00:26:08,291 : is your project ready?
+00:26:08,421 --> 00:26:09,541 : is your project ready?
+00:26:09,716 --> 00:26:11,616 : sir atleast take a look at this once sir please
+00:26:11,664 --> 00:26:13,564 : do submit it i'll take into consideration
+00:26:13,640 --> 00:26:15,660 : sir give me some extension sir
+00:26:15,744 --> 00:26:18,744 : sir after dads stroke i couldnt concentrate for 2 months sir please
+00:26:18,817 --> 00:26:20,517 : did you leave having food and water for 2 months?
+00:26:20,571 --> 00:26:21,691 : no
+00:26:21,693 --> 00:26:23,793 : did you leave taking bath?no?
+00:26:23,866 --> 00:26:25,066 : then why did you left studies?
+00:26:25,131 --> 00:26:27,731 : sir im very close sir pls take a look at this sir please..
+00:26:27,810 --> 00:26:31,310 : mr.lobo my son died falling from train on sunday afternoon
+00:26:31,389 --> 00:26:37,009 : monday morning virushastrabhuddi gave lecture in this college
+00:26:38,669 --> 00:26:42,069 : i can only give you sympathy not extension
+00:26:42,878 --> 00:26:43,998 : si...r
+00:28:01,417 --> 00:28:05,417 : how cool design he made?? wireless camera over helicopter?
+00:28:06,981 --> 00:28:09,781 : traffic updates security... can be used for all
+00:28:09,785 --> 00:28:12,885 : but VIRUS was tellin this is an impractical design...
+00:28:12,966 --> 00:28:15,066 : how it wont fly? ill make it fly!! hm hm
+00:28:17,269 --> 00:28:19,489 : hey dont tell joy will give him surprise
+00:28:19,573 --> 00:28:22,973 : we'll make this fly out his window and record his reaction
+00:28:23,040 --> 00:28:25,360 : if we do his project, who'll do ours?
+00:28:25,455 --> 00:28:28,155 : test, viva, quizzes included, there are 42 examz in each semester
+00:28:28,229 --> 00:28:30,249 : hey you worry a lot dude
+00:28:31,129 --> 00:28:33,829 : take this hand and keep it in your hand and say,
+00:28:33,922 --> 00:28:35,442 : aal iz well aal iz well
+00:28:35,506 --> 00:28:36,906 : all is well
+00:28:36,966 --> 00:28:37,866 : aal iz well
+00:28:37,963 --> 00:28:40,563 : now he has brought something new our BABA ranchhodas!!
+00:28:40,978 --> 00:28:48,398 : hey in our village there was a watchman...
+00:28:48,445 --> 00:28:50,545 : and we used to sleep tight
+00:28:50,877 --> 00:28:54,377 : one night there was a robbery in our village,
+00:28:54,413 --> 00:28:56,913 : and he yells aal iz well aal iz well
+00:28:57,009 --> 00:28:59,109 : and we used to sleep like fools...
+00:28:59,800 --> 00:29:01,900 : but that day we came to  know about the real fact
+00:29:01,931 --> 00:29:04,551 : see our heart right, is a big coward...
+00:29:04,991 --> 00:29:07,711 : keep our heart as a fool
+00:29:07,801 --> 00:29:09,801 : if you have any big problem in life
+00:29:09,899 --> 00:29:10,599 : tell our heart
+00:29:10,679 --> 00:29:14,199 : no problem baby everythin is ok
+00:29:14,340 --> 00:29:16,640 : hm so that will solve problem ? hanh?
+00:29:16,743 --> 00:29:19,263 : no but still it gains the dareness to survive
+00:29:20,747 --> 00:29:24,647 : remember this mantra... this is gonna become more  useful over here
+00:32:40,066 --> 00:32:42,766 : got it got it yeah
+00:32:57,804 --> 00:32:59,624 : take it to  joys window
+00:32:59,803 --> 00:33:00,923 : hey joy, up up
+00:33:01,640 --> 00:33:04,360 : ooye window... see silencer naked naked heheh ehhe
+00:33:06,233 --> 00:33:07,353 : 
+00:33:07,376 --> 00:33:09,396 : hey joy come out joy
+00:33:11,997 --> 00:33:13,117 : hey joy look outside..
+00:33:14,269 --> 00:33:15,989 : joy....
+00:33:49,473 --> 00:33:56,493 : #... give me some sunshine.. give me some rain...#
+00:33:58,237 --> 00:34:05,137 : #... give me another chance i wanna  grow up once again.....#
+00:34:05,281 --> 00:34:07,101 : you've a good news sir..
+00:34:07,272 --> 00:34:08,892 : neither police got to know
+00:34:09,481 --> 00:34:11,301 : nor joys dad....
+00:34:11,961 --> 00:34:14,061 : everyone will think its a suicide, sir
+00:34:15,623 --> 00:34:18,043 : reason for death in postmortem report
+00:34:18,233 --> 00:34:21,733 : intense pressure in wind pipe resulting in choking
+00:34:23,191 --> 00:34:25,111 : this fool believed tat
+00:34:25,166 --> 00:34:27,286 : died because of the pressure held here...
+00:34:27,971 --> 00:34:31,371 : and from last 4 years of pressure over here? wat about that?
+00:34:31,379 --> 00:34:34,179 : even thats not in the report also sir,
+00:34:35,021 --> 00:34:37,621 : these engineers are so back minded sir
+00:34:38,143 --> 00:34:42,843 : didnt even invent some machine, that could really behold the pressure over here...
+00:34:44,007 --> 00:34:49,007 : if they had does, could've come to know this is not a suicide, its a murder,
+00:34:52,048 --> 00:34:56,168 : are you blaming me for the suicide of joy?
+00:34:56,179 --> 00:34:59,399 : if one student cant tolerate pressure why im i the one responsible?
+00:34:59,482 --> 00:35:01,402 : so many pressure will come in life...
+00:35:01,472 --> 00:35:03,372 : then everytime will you blame other for that?
+00:35:03,452 --> 00:35:05,752 : sir im not blaming you sir
+00:35:05,754 --> 00:35:07,854 : actually im blaming the system
+00:35:07,877 --> 00:35:10,177 : sir i've got some statistics
+00:35:10,521 --> 00:35:12,621 : sir in suicides india is no:1 sir
+00:35:12,703 --> 00:35:15,923 : every 1 half hour one of the other students attempt suicide, sir
+00:35:17,056 --> 00:35:20,876 : student die less in sickness and more in suicide here sir
+00:35:20,881 --> 00:35:22,381 : something is going wrong rightt sir?
+00:35:22,434 --> 00:35:26,834 : i cant tell about other colleges but this is one of the finest college in the coun

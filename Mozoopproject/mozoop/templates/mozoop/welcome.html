@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
+    <script src="{% static 'mozoop\setup\tailwindcss.js' %}"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <style>
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #f0f0f0;
+          font-family: Arial, sans-serif;
+          text-align: center;
+      }
+      .welcome-message {
+          background-color: #ffffff;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+          margin: 0;
+          font-size: 24px;
+      }
+      p {
+          margin: 10px 0 0;
+          font-size: 16px;
+      }
+  </style>
+
+
+    <title>welcome</title>
+</head>
+<body class="bg-pink-800">
+    <!-- Hero -->
+    <section class="text-gray-600 body-font">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+          <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+
+              <div class="welcome-message">
+                  <h1>Welcome to MoZoop</h1>
+                  <p>We give trailers as per your likings</p>
+              </div>
+          
+              <script>
+                  // Redirect to /home after 10 seconds
+                  setTimeout(function() {
+                      window.location.href = '/home';
+                  }, 5000); // 5000 milliseconds = 5 seconds
+              </script>
+
+
+            </div>
+          </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+
+    <!-- Footer -->
+</body>
+</html>

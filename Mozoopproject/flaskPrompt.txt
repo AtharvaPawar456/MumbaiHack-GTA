@@ -1,0 +1,81 @@
+
+give me flask app Code
+
+# strictly handle every error using error handling, exception handling, validation, 
+
+i am using tailwind css CDN for UI development and font awesome to get icon on our website
+as this will be a mobile app so make it responsive only
+use jinja template effeciently
+
+create a database
+
+database Schema:
+
+## Table = UserData
+uid : auto Generated unique id
+username : text
+password : text
+preference : text
+createdon : date
+
+## Table = TrailerData
+tid : auto Generated unique id
+moviename : text
+genere : text
+Descriptions : text
+actors : text
+thumbnail : text
+path : text
+preference : text
+createdon : date
+
+
+
+route"/"
+render "welcome.html" for 10 sec then redirect to route"/home" if login is their else route"/login"
+
+
+
+route"/login"
+render "login.html"
+
+
+route"/register" : [GET, POST]
+GET: render "register.html"
+POST: then save the user enter data to table = UserData then redirect to route"/home"
+
+
+route"/home"
+print the logged in user details like username and preference
+
+then map the user preference with the database : Table = TrailerData and get the list of records
+
+then render this all the data on the html page
+render "home.html"
+
+
+
+route"/view?play=v123"
+get the params from url "play"
+then pass them to database and get the same tid record from moviedata table
+and also get the similar genere key word records from moviedata table 
+then pass it to the html page
+render "playvideo.html"
+
+
+
+route"/generatetralier"  : [GET, POST]
+GET: render "generate.html" where their is form wuth 2 field : movie name and the preference=comedy_fun
+POST: get the data split the preference by "_" and make a list
+then print "generate the trailer"
+save all the data as a record in the moviedata table 
+then redirect to route"/home"
+
+
+
+
+
+on "home.html"
+- their is one carousel with 5 slide
+- 4 button section
+- 10 button 

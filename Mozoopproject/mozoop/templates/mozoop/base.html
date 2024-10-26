@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 600 seconds = 10 minutes -->
+    <meta http-equiv="refresh" content="600" />
+    <!-- <meta http-equiv="refresh" content="6">  -->
+    {% load static %}
+
+    <script src="{% static 'mozoop\setup\tailwindcss.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+
+    <style>{% block css %} {% endblock %}</style>
+
+    <title>{% block title %}{% endblock %}</title>
+    
+  </head>
+  <body >
+    {% if message %}
+
+    <div class="text-center text-red-700 text-4xl font-bold mt-20">
+      Wrong Route
+    </div>
+
+    {% else %}
+
+    <div></div>
+
+    <!-- Navbar -->
+    <div class="h-16 fixed top-0 w-full bg-white z-10">
+      <div class="grid grid-cols-4 border h-16">
+        <a
+          href="{% url 'home' %}"
+          class="text-2xl text-center font-bold py-3 pl-4 grid grid-cols-3"
+        >
+          <div
+            class="overflow-hidden transform transition-transform hover:scale-125"
+          >
+            <img
+              src="{% static 'mozoop\setup\images\logo-2.png' %}"
+              class="h-10 w-12 rounded-full border border-2 border-gray-300 scale-705 mx-auto hover:shadow-xl"
+              alt="Plant root img"
+            />
+          </div>
+          <div class="col-span-2 text-left">MoZoop</div>
+        </a>
+        <div></div>
+        <div class="col-span-2 h-16">
+          <div class="grid grid-cols-5 h-16">
+            <div></div>
+            <div></div>
+            {% if user.is_authenticated %}
+            <a href="{% url 'home' %}" class="h-16">
+              <div
+                class="text-xl py-3 h-16 font-bold text-center text-green-500 hover:text-green-900 hover:bg-green-100"
+              >
+                Select Node
+              </div>
+            </a>
+            <a href="{% url 'user_logout' %}" class="col-span-2">
+              <div
+                class="text-xl py-3 h-16 font-bold text-center text-green-500 hover:text-green-900 hover:bg-green-100"
+              >
+                <i class="fa-solid fa-user"></i> {{ user.username }}
+                <i class="fa-solid fa-right-from-bracket ml-2"></i>
+              </div>
+            </a>
+            {% else %}
+            <div></div>
+            <div></div>
+            <a href="{% url 'user_login' %}">
+              <div
+                class="text-xl py-3 h-16 font-bold text-center text-green-500 hover:text-green-900 hover:bg-green-100"
+              >
+                <i class="fa-solid fa-user"></i> Login
+              </div>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+    <!-- content -->
+    <div>{% block content %}{% endblock %}</div>
+
+    {% block js %}{% endblock %} {% endif %}
+  </body>
+</html>

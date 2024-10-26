@@ -1,0 +1,85 @@
+dataJson = jsonData=[
+    {
+        "title": "The First Meeting",
+        "scenStart": "00:11:26",
+        "scenEnd": "00:11:50",
+        "description": "Farhan and Raju meet Rancho for the first time in the hostel, beginning their journey of friendship as they bond over shared experiences."
+    },
+    {
+        "title": "The 'Aal izz well' Mantra",
+        "scenStart": "00:13:15",
+        "scenEnd": "00:13:20",
+        "description": "Rancho’s mantra 'Aal izz well' encourages a positive outlook, symbolizing their support for each other through challenges."
+    },
+    {
+        "title": "The Exam Night Rescue",
+        "scenStart": "00:52:55",
+        "scenEnd": "00:53:02",
+        "description": "Farhan and Raju attempt to steal the exam paper for Raju, showing their willingness to go to extreme lengths for a friend."
+    },
+    {
+        "title": "The 'Missing' Results",
+        "scenStart": "01:17:27",
+        "scenEnd": "01:17:42",
+        "description": "When Rancho’s name is missing from the results, Farhan and Raju’s deep concern underscores their emotional bond with him."
+    },
+    {
+        "title": "The Rooftop Bonding",
+        "scenStart": "01:17:42",
+        "scenEnd": "01:17:54",
+        "description": "The friends share their feelings on the rooftop, experiencing disappointment together, which strengthens their friendship."
+    },
+    {
+        "title": "The 'Stolen' Photo",
+        "scenStart": "01:35:13",
+        "scenEnd": "01:35:28",
+        "description": "Rancho keeps his promise to stay in touch, demonstrating the power of friendship to transcend time and distance."
+    },
+    {
+        "title": "The Journey to Find Rancho",
+        "scenStart": "01:46:44",
+        "scenEnd": "01:46:55",
+        "description": "Their journey to find Rancho reflects their commitment and determination to reconnect with him, showcasing their enduring friendship."
+    },
+    {
+        "title": "The Reunion and Acceptance",
+        "scenStart": "02:32:49",
+        "scenEnd": "02:33:05",
+        "description": "The emotional culmination of their journey, where they reunite with Rancho and acknowledge their growth and changes."
+    }
+    ]
+
+
+sample codes:
+# Basic Video Editing Tests
+
+def test_video_trimming():
+    """Test trimming a video clip and save to 'output' directory."""
+    video = VideoFileClip("ff.mp4").subclip(0, 5)
+    output_path = os.path.join(output_dir, "trimmed_video.mp4")
+    video.write_videofile(output_path)
+    assert int(video.duration) == 5, "Trimming failed"
+    video.close()
+
+def test_video_concatenation():
+    """Test concatenating multiple video clips and save to 'output' directory."""
+    clip1 = VideoFileClip("ff.mp4").subclip(0, 3)
+    clip2 = VideoFileClip("avg.mp4").subclip(0, 3)
+    concatenated_clip = concatenate_videoclips([clip1, clip2])
+    output_path = os.path.join(output_dir, "concatenated_video.mp4")
+    concatenated_clip.write_videofile(output_path)
+    assert int(concatenated_clip.duration) == 6, "Concatenation failed"
+    clip1.close()
+    clip2.close()
+    concatenated_clip.close()
+
+
+make a emptry list : trimList = []
+based on dataJson trim multiple clips from the video : "ff.mp4" as trim<1,2 ,3 ,4 ...>.mp4 and save it
+then track every appeand the trim file name
+then join all the files mentioned in the trimList and make a full video file and save it
+
+give me proper python code for it
+
+
+audioList = ["song1.mp3","song2.mp3", "song3.mp3","song4.mp3", "song5.mp3", "song6.mp3", "song6.mp3"]

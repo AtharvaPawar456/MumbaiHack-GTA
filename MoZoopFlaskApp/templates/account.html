@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}MoZoop . Account{% endblock %}
+{% block content %}
+
+    
+
+    <img src="data:image/png;base64,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" alt="profile icon"
+    class="mx-auto h-20 border border-2 shadow shadow-md shadow-red-600 p-2 rounded-full">
+
+    <div class="text-xl font-mono text-center mt-4">Welcome, {{ user[1] }}!</div> <!-- Assuming the second column is the username -->
+
+
+    <div class="grid grid-cols-1 gap-4 my-10 mx-10">
+        <div>Username : {{ user[1] }}</div>
+        <div>Email Id : {{ user[2] }}</div>
+        <div>Created At : {{ user[3] }}</div>
+    </div>
+
+
+    <a href="{{ url_for('logout') }}" class="py-2 px-6 border rounded-md mt-10 mx-32 font-bold shadow shadow-md shadow-red-600">Logout</a>
+    
+{% endblock %}
