@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="static\setup\tailwindcss.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <link rel="icon" href="https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/main/static/your-logo.png" type="image/png">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/AtharvaPawar456/HandMadeProjects/main/static/your-logo.png" type="image/png">
+
+
+
+    <style>
+        /* Style for fixed navigation bar */
+        .fixed-bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #860420;
+            display: flex;
+            justify-content: space-around;
+            padding: 2px;
+            z-index: 1000;
+        }
+
+        .bottom-nav-icon {
+            color: #fff;
+            font-size: 24px;
+        }
+    </style>
+
+    <style>{% block css %} {% endblock %}</style>
+    <title>{% block title %}{% endblock %}</title>
+    
+  </head>
+  <body >
+    <div class="text-center font-mono font-bold bg-red-800 text-white text-xl mb-2">MoZoop</div>
+
+    {% if message %}
+        <div class="text-center text-red-700 text-4xl font-bold mt-20">Wrong Route</div>
+    {% else %}
+
+    <div></div>
+
+  
+   
+    <!-- content -->
+    <div>{% block content %}{% endblock %}</div>
+
+
+
+    <!-- App Footer : Fixed bottom navigation bar  -->
+    <section class="font-bold font-mono mt-2">
+        <nav class="fixed-bottom-nav text-center">
+            <a href="/history" class="bottom-nav-icon text-sm "><i class="fa-solid fa-clock-rotate-left"></i><br>History</a>
+            <a href="/home" class="bottom-nav-icon text-sm "><i class="fas fa-home"></i><br>Home</a>
+            <a href="/account" class="bottom-nav-icon text-sm "><i class="fas fa-user-group"></i><br>Account</a>
+        </nav>
+    </section>
+
+
+    {% block js %}{% endblock %} {% endif %}
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Edit Movie Data{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Movie Data</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Movie Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for movie in movies %}
+            <tr>
+                <td>{{ movie['moviename'] }}</td>
+                <td>
+                    <a href="{{ url_for('editMovieDataForm', movie=movie['id']) }}" class="btn btn-primary">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

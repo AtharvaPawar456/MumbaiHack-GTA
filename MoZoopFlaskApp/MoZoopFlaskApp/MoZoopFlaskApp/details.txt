@@ -1,0 +1,116 @@
+movie_data = {
+    "moviename": "Avengers: Endgame",
+    "genere": "Action, Adventure, Sci-Fi",
+    "description": ("After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. "
+                    "With the help of remaining allies, the Avengers assemble once more in order to reverse "
+                    "Thanos' actions and restore balance to the universe."),
+    "actors": "Robert Downey Jr., Chris Evans, Scarlett Johansson, Mark Ruffalo, Chris Hemsworth, Jeremy Renner",
+    "thumbnail": "https://example.com/path/to/thumbnail.jpg",  # Replace with an actual URL
+    "path": "https://example.com/path/to/trailer.mp4",  # Replace with an actual URL
+    "preference": "action_avengers"
+}
+
+
+movie_data = {
+    "moviename": "3 Idiots",
+    "genre": "Comedy, Drama",
+    "description": (
+        "In college, Farhan and Raju form a great bond with Rancho due to his refreshing outlook. "
+        "Years later, a bet gives them a chance to look for their long-lost friend whose existence seems elusive."
+    ),
+    "actors": "Aamir Khan, R. Madhavan, Sharman Joshi, Kareena Kapoor, Boman Irani",
+    "thumbnail": "https://example.com/path/to/3idiots_thumbnail.jpg",  # Replace with an actual URL
+    "path": "https://example.com/path/to/3idiots_trailer.mp4",  # Replace with an actual URL
+    "preference": "comedy_drama_inspiration"
+}
+
+movie_data = {
+    "moviename": "Furious 7",
+    "genre": "Action, Crime, Thriller",
+    "description": (
+        "Dominic Toretto and his crew must face a new threat when a powerful criminal organization led by Deckard Shaw seeks revenge against them for the events of 'Furious 6'."
+    ),
+    "actors": "Vin Diesel, Paul Walker, Dwayne Johnson, Michelle Rodriguez, Tyrese Gibson, Jordana Brewster",
+    "thumbnail": "https://example.com/path/to/furious7_thumbnail.jpg",  # Replace with an actual URL
+    "path": "https://example.com/path/to/furious7_trailer.mp4",  # Replace with an actual URL
+    "preference": "action_furious"
+}
+
+
+static\media\trailers\fast7.mp4
+
+
+cursor.execute('''
+    INSERT INTO TrailerData (moviename, genre, description, actors, thumbnail, path) 
+    VALUES (?, ?, ?, ?, ?, ?)
+''', (movie_name, genre, description, actors, thumbnail, path))
+
+
+
+INSERT INTO TrailerData (moviename, genre, description, actors, thumbnail, path) 
+VALUES ('Avenger Endgame', 'SciFi_Tech', 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.', 
+        'Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen PageRobert Downey Jr., Chris Evans, Scarlett Johansson, Mark Ruffalo, Chris Hemsworth, Jeremy Renner', 
+        'https://rukminim2.flixcart.com/image/416/416/jv2p6kw0/poster/y/n/h/medium-endgame3jumbo-avengers-endgame-jumbo-poster-for-room-original-imafgyfvxjzuvkfu.jpeg?q=70&crop=false', 
+        '/media/trailers/idiot_comedy.mp4');
+
+
+
+
+
+
+
+UPDATE TrailerData
+SET path = REPLACE(path, 'media\movies\idiots.mkv', 'media\trailers\idiot_comedy.mp4')
+WHERE path LIKE 'static\%';
+
+
+static\media\trailers\idiot_comedy.mp4
+
+
+
+
+INSERT INTO GenTrailerData (moviename, prompt, preference, path, thumbnail) 
+VALUES ('Avengers: Endgame', 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.', 'action_avengers', 'https://example.com/path/to/trailer.mp4', 'https://example.com/path/to/thumbnail.jpg');
+
+INSERT INTO GenTrailerData (moviename, prompt, preference, path, thumbnail) 
+VALUES ('3 Idiots', 'In college, Farhan and Raju form a great bond with Rancho due to his refreshing outlook. Years later, a bet gives them a chance to look for their long-lost friend whose existence seems elusive.', 'comedy_drama_inspiration', 'https://example.com/path/to/3idiots_trailer.mp4', 'https://example.com/path/to/3idiots_thumbnail.jpg');
+
+
+UPDATE TrailerData set path="media\trailers\idiot_comedy.mp4" where tid=2;
+UPDATE TrailerData set path="static\media\movies\avanger.mp4" where tid=1;
+
+UPDATE TrailerData set path="C:\Users\Atharva Pawar\Documents\GitHub\MumbaiHack-GTA\MoZoopFlaskApp\static\media\trailers\idiot_comedy.mp4" where tid=2;
+UPDATE TrailerData set path="C:\Users\Atharva Pawar\Documents\GitHub\MumbaiHack-GTA\MoZoopFlaskApp\static\media\trailers\avg.mp4" where tid=1;
+
+
+
+
+
+
+<div class="bg-gray-100 pb-20">
+    <main class="p-4">
+        <h2 class="text-2xl font-bold mb-2">{{ trailer.moviename }}</h2>
+        <p class="text-gray-600 mb-4">{{ trailer.description }}</p>
+        <div class="video-player mb-4">
+            <video controls class="w-full h-auto">
+                <source src="{{ trailer.path }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- {{ trailer.path }} -->
+        </div>
+
+        <h3 class="text-xl font-bold mb-2">Similar Trailers</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% for similar in similar_trailers %}
+            <div class="rounded overflow-hidden shadow-lg">
+                <img class="w-full h-32 object-cover" src="{{ similar.thumbnail }}" alt="{{ similar.moviename }}">
+                <div class="px-4 py-2">
+                    <div class="font-bold text-lg">{{ similar.moviename }}</div>
+                    <p class="text-gray-700">{{ similar.description }}</p>
+                    <a href="{{ url_for('view_trailer', play=similar.tid) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2 inline-block">Watch</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</div>
